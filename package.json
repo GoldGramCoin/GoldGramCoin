@@ -1,0 +1,25 @@
+{
+  "name": "ggc-sc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "big-integer": "^1.6.43",
+    "bignumber.js": "^8.1.1",
+    "ganache-cli": "^6.4.3",
+    "truffle": "^5.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@repo.quantumcrowd.io:smartcontract/ggc-sc.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
