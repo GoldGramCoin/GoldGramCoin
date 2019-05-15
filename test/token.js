@@ -12,7 +12,7 @@ contract("GGCToken", function(accounts) {
     tokenInstance = await Token.new();
   });
 
-  describe("ERC20 and deploy tests", () => {
+  describe("ERC20 tests", () => {
     it("should test ERC20 public properties", async function () {
       const name = await tokenInstance.name();
       assert.equal("GGC Token", name, "Name should be GGC Token");
