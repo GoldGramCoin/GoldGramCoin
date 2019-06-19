@@ -13,13 +13,7 @@ contract GGCToken is IERC20 {
     uint8 public decimals = 18;
 
     address public _repository;
-
-    struct account {
-        uint256 balance;
-        bool isVerified;
-    }
-
-    mapping (address => account) public accInfo;
+    mapping (address => uint256) public balances;
     mapping (address => mapping (address => uint256)) private _allowed;
 
     event Transfer(address indexed from, address indexed to, uint256 value);
@@ -39,18 +33,13 @@ contract GGCToken is IERC20 {
         _;
     }
 
-    modifier onlyVerifed(address _account) {
-        require(accInfo[_account].isVerified == true, "Account is not verified");
-        _;
-    }
-
     function totalSupply() external view returns (uint256) {
         Repository repo = Repository(_repository);
         return repo.totalStock();
     }
 
     function balanceOf(address who) external view returns (uint256) {
-        return accInfo[who].balance;
+        return balances[who];
     }
 
     function allowance(address owner, address spender) public view returns (uint256) {
@@ -65,9 +54,7 @@ contract GGCToken is IERC20 {
     constructor(address repository) public {
         _owner = msg.sender;                         // Make the creator the owner
 
-        accInfo[msg.sender].balance = 0;  // Give the creator all initial tokens
-        accInfo[msg.sender].isVerified = true;   // Give the creator whitelist privileges
-
+        balances[msg.sender] = 0;
         name = "GGC Token";                         // Set the name for display purposes
         symbol = "GGC";                             // Set the symbol for display purposes
         _repository = repository;
@@ -84,24 +71,6 @@ contract GGCToken is IERC20 {
     function changeOwner(address _newOwner) external onlyOwner() {
         require(_newOwner != address(0), "Invalid address");
         _owner = _newOwner;
-    }
-
-    /**
-     * Whitelist account address
-     */
-    function verify(address _account) external onlyOwner() {
-        require(_account != address(0), "Invalid address");
-        accInfo[_account].isVerified = true;
-        emit Verify(_account, true);
-    }
-
-    /**
-     * Blacklist account address
-     */
-    function unverify(address _account) external onlyOwner() {
-        require(_account != address(0), "Invalid address");
-        accInfo[_account].isVerified = false;
-        emit Verify(_account, false);
     }
 
     function approve(address spender, uint256 value) public returns (bool) {
@@ -125,12 +94,12 @@ contract GGCToken is IERC20 {
     /**
      * Internal transfer, only can be called by this contract
      */
-    function _transfer(address _from, address _to, uint _value) internal onlyVerifed(_from) onlyVerifed(_to) {
-        require(accInfo[_from].balance >= _value, "Sender has insufficient funds");                             // Check if the receiver is whitelisted
-        require(accInfo[_to].balance + _value >= accInfo[_to].balance, "Invalid amount");            // Check for overflows
+    function _transfer(address _from, address _to, uint _value) internal  {
+        require(balances[_from] >= _value, "Sender has insufficient funds");                             // Check if the receiver is whitelisted
+        require(balances[_to] + _value >= balances[_to], "Invalid amount");            // Check for overflows
 
-        accInfo[_from].balance = accInfo[_from].balance.sub(_value);                                           // Subtract from the sender
-        accInfo[_to].balance = accInfo[_to].balance.add(_value);                                             // Add the same to the recipient
+        balances[_from] = balances[_from].sub(_value);                                           // Subtract from the sender
+        balances[_to] = balances[_to].add(_value);                                             // Add the same to the recipient
 
         emit Transfer(_from, _to, _value);                                         // Emits a Transfer Event
     }
