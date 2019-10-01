@@ -1,25 +1,30 @@
 {
-  "name": "ggc-sc",
+  "name": "ggc-sc-zepgradeable",
   "version": "1.0.0",
   "description": "",
-  "main": "truffle.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "big-integer": "^1.6.43",
-    "bignumber.js": "^8.1.1",
-    "ganache-cli": "^6.4.3",
-    "truffle": "^5.0.13"
-  },
-  "devDependencies": {},
+  "main": "truffle-config.js",
   "scripts": {
-    "test": "mocha"
+    "test": "truffle test test/ggc.test.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@repo.quantumcrowd.io:smartcontract/ggc-sc.git"
-  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.5.3",
+    "@openzeppelin/contracts": "^2.3.0",
+    "@openzeppelin/contracts-ethereum-package": "^2.2.3",
+    "@openzeppelin/upgrades": "^2.5.3",
+    "big-integer": "^1.6.44",
+    "chai": "^4.2.0",
+    "solc": "^0.5.0",
+    "truffle": "^5.0.36",
+    "truffle-privatekey-provider": "^1.3.0",
+    "web3": "^1.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "truffle-solidity-loader": "^0.1.32",
+    "webpack": "^4.40.2",
+    "webpack-dev-server": "^3.8.1"
+  }
 }

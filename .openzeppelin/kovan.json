@@ -1,0 +1,319 @@
+{
+  "contracts": {
+    "GGCToken": {
+      "address": "0x221Da1101392Cde8DAF9D754Ed1f67339d1Be945",
+      "constructorCode": "60806040523480156100115760006000fd5b50610017565b6149b480620000276000396000f3fe",
+      "bodyBytecodeHash": "e7d86143f6337b5678cf3b3f5e6f1c26d8d355044d95a4d6489ac99ccc64ba96",
+      "localBytecodeHash": "258104db603c9c62dbea33c0f68070ff2f2e1c08c10d76dfd09c0cf14f76542b",
+      "deployedBytecodeHash": "258104db603c9c62dbea33c0f68070ff2f2e1c08c10d76dfd09c0cf14f76542b",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_mapping<t_uint256>": {
+          "id": "t_mapping<t_uint256>",
+          "valueType": "t_uint256",
+          "label": "mapping(key => uint256)",
+          "kind": "mapping"
+        },
+        "t_struct<ERC20.exemption>": {
+          "id": "t_struct<ERC20.exemption>",
+          "kind": "struct",
+          "label": "ERC20.exemption",
+          "members": [
+            {
+              "label": "exempted",
+              "astId": 171,
+              "type": "t_bool",
+              "src": "5201:13:0"
+            },
+            {
+              "label": "value",
+              "astId": 173,
+              "type": "t_uint256",
+              "src": "5225:13:0"
+            }
+          ]
+        },
+        "t_mapping<t_struct<ERC20.exemption>>": {
+          "id": "t_mapping<t_struct<ERC20.exemption>>",
+          "valueType": "t_struct<ERC20.exemption>",
+          "label": "mapping(key => ERC20.exemption)",
+          "kind": "mapping"
+        },
+        "t_address": {
+          "id": "t_address",
+          "kind": "elementary",
+          "label": "address"
+        },
+        "t_struct<Roles.Role>": {
+          "id": "t_struct<Roles.Role>",
+          "kind": "struct",
+          "label": "Roles.Role",
+          "members": [
+            {
+              "label": "bearer",
+              "astId": 1639,
+              "type": "t_mapping<t_bool>",
+              "src": "25589:32:0"
+            }
+          ]
+        },
+        "t_mapping<t_bool>": {
+          "id": "t_mapping<t_bool>",
+          "valueType": "t_bool",
+          "label": "mapping(key => bool)",
+          "kind": "mapping"
+        },
+        "t_string": {
+          "id": "t_string",
+          "kind": "elementary",
+          "label": "string"
+        },
+        "t_uint8": {
+          "id": "t_uint8",
+          "kind": "elementary",
+          "label": "uint8"
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "initialized",
+          "astId": 24,
+          "type": "t_bool",
+          "src": "1790:24:0"
+        },
+        {
+          "contract": "Initializable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "initializing",
+          "astId": 26,
+          "type": "t_bool",
+          "src": "1914:25:0"
+        },
+        {
+          "contract": "Initializable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 82,
+          "type": "t_array:50<t_uint256>",
+          "src": "3023:29:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_balances",
+          "astId": 178,
+          "type": "t_mapping<t_uint256>",
+          "src": "5254:46:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_allowances",
+          "astId": 184,
+          "type": "t_mapping<t_uint256>",
+          "src": "5307:69:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "exemptedAccts",
+          "astId": 188,
+          "type": "t_mapping<t_struct<ERC20.exemption>>",
+          "src": "5383:52:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_totalSupply",
+          "astId": 190,
+          "type": "t_uint256",
+          "src": "5444:28:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "feeReceiver",
+          "astId": 192,
+          "type": "t_address",
+          "src": "5479:27:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "fee",
+          "astId": 194,
+          "type": "t_uint256",
+          "src": "5513:19:0"
+        },
+        {
+          "contract": "ERC20",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "feeDecimals",
+          "astId": 196,
+          "type": "t_uint256",
+          "src": "5539:27:0"
+        },
+        {
+          "contract": "MinterRole",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_minters",
+          "astId": 974,
+          "type": "t_struct<Roles.Role>",
+          "src": "17143:27:0"
+        },
+        {
+          "contract": "MinterRole",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 1074,
+          "type": "t_array:50<t_uint256>",
+          "src": "18044:29:0"
+        },
+        {
+          "contract": "ERC20Mintable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 1298,
+          "type": "t_array:50<t_uint256>",
+          "src": "21701:29:0"
+        },
+        {
+          "contract": "ERC20Burnable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 956,
+          "type": "t_array:50<t_uint256>",
+          "src": "16916:29:0"
+        },
+        {
+          "contract": "PauserRole",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_pausers",
+          "astId": 1316,
+          "type": "t_struct<Roles.Role>",
+          "src": "21928:27:0"
+        },
+        {
+          "contract": "PauserRole",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 1416,
+          "type": "t_array:50<t_uint256>",
+          "src": "22829:29:0"
+        },
+        {
+          "contract": "Pausable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_paused",
+          "astId": 1433,
+          "type": "t_bool",
+          "src": "23120:20:0"
+        },
+        {
+          "contract": "Pausable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 1516,
+          "type": "t_array:50<t_uint256>",
+          "src": "24292:29:0"
+        },
+        {
+          "contract": "ERC20Pausable",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 1634,
+          "type": "t_array:50<t_uint256>",
+          "src": "25417:29:0"
+        },
+        {
+          "contract": "ERC20Detailed",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_name",
+          "astId": 1198,
+          "type": "t_string",
+          "src": "20291:20:0"
+        },
+        {
+          "contract": "ERC20Detailed",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_symbol",
+          "astId": 1200,
+          "type": "t_string",
+          "src": "20318:22:0"
+        },
+        {
+          "contract": "ERC20Detailed",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "_decimals",
+          "astId": 1202,
+          "type": "t_uint8",
+          "src": "20347:23:0"
+        },
+        {
+          "contract": "ERC20Detailed",
+          "path": "contracts\\GGCTokenBundled.sol",
+          "label": "______gap",
+          "astId": 1254,
+          "type": "t_array:50<t_uint256>",
+          "src": "21037:29:0"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": []
+      }
+    }
+  },
+  "solidityLibs": {},
+  "proxies": {
+    "ggc-sc-zepgradeable/GGCToken": [
+      {
+        "address": "0x6BBC5Cf0d8083E1d1Bf69155844f605F98c1BBF1",
+        "version": "1.0.0",
+        "implementation": "0x221Da1101392Cde8DAF9D754Ed1f67339d1Be945",
+        "admin": "0x03Bf87F6fedAFB1742bB613Bb3C7011b621DD302",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x0479De2dAF008F3577Fdf82db52F762857335A53",
+        "version": "1.0.0",
+        "implementation": "0x221Da1101392Cde8DAF9D754Ed1f67339d1Be945",
+        "admin": "0x03Bf87F6fedAFB1742bB613Bb3C7011b621DD302",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x5f36cf189edCE122DabdB8251958046a0a6CB793",
+        "version": "1.0.0",
+        "implementation": "0x221Da1101392Cde8DAF9D754Ed1f67339d1Be945",
+        "admin": "0x03Bf87F6fedAFB1742bB613Bb3C7011b621DD302",
+        "kind": "Upgradeable"
+      }
+    ]
+  },
+  "manifestVersion": "2.2",
+  "version": "1.0.0",
+  "proxyAdmin": {
+    "address": "0x03Bf87F6fedAFB1742bB613Bb3C7011b621DD302"
+  }
+}
